@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SplitAndMerge
 {
-    public class Variable
+    public partial class Variable
     {
         public enum VarType
         {
@@ -174,11 +174,11 @@ namespace SplitAndMerge
             }
             if (obj is string || obj is char)
             {
-                return new Variable(Convert.ToString(obj));
+                return new Variable(System.Convert.ToString(obj));
             }
             if (obj is double || obj is float || obj is int || obj is long)
             {
-                return new Variable(Convert.ToDouble(obj));
+                return new Variable(System.Convert.ToDouble(obj));
             }
             if (obj is bool)
             {
@@ -1484,14 +1484,14 @@ namespace SplitAndMerge
 
                     try
                     {
-                        return Convert.ChangeType(value, conversionType);
+                        return System.Convert.ChangeType(value, conversionType);
                     }
 
                     catch (Exception)
                     {
                         if (underlyingType != null)
                         {
-                            return Convert.ChangeType(value, underlyingType);
+                            return System.Convert.ChangeType(value, underlyingType);
                         }
                     }
                 }
